@@ -1,0 +1,59 @@
+{
+  "size": {
+    "width": 2500,
+    "height": 1686
+  },
+  "selected": true,
+  "name": "yahoo新聞台",
+  "chatBarText": "yahoo新聞台",
+  "areas": [
+    {
+      "bounds": {
+        "x": 9,
+        "y": 9,
+        "width": 821,
+        "height": 830
+      },
+      "action": {
+        "type": "message",
+        "text": "#新聞頭條"
+      }
+    },
+    {
+      "bounds": {
+        "x": 839,
+        "y": 1,
+        "width": 805,
+        "height": 825
+      },
+      "action": {
+        "type": "message",
+        "text": "#新聞類別"
+      }
+    },
+    {
+      "bounds": {
+        "x": 1666,
+        "y": 4,
+        "width": 821,
+        "height": 826
+      },
+      "action": {
+        "type": "message",
+        "text": "#隨機新聞"
+      }
+    },
+    {
+      "bounds": {
+        "x": 13,
+        "y": 865,
+        "width": 2466,
+        "height": 821
+      },
+      "action": {
+        "type": "message",
+        "text": "#切換新聞台"
+      }
+    }
+  ]
+}

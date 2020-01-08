@@ -1,0 +1,59 @@
+{
+  "size": {
+    "width": 2500,
+    "height": 1686
+  },
+  "selected": false,
+  "name": "tvbs新聞台",
+  "chatBarText": "tvbs新聞台",
+  "areas": [
+    {
+      "bounds": {
+        "x": 0,
+        "y": 13,
+        "width": 826,
+        "height": 817
+      },
+      "action": {
+        "type": "message",
+        "text": "#新聞頭條"
+      }
+    },
+    {
+      "bounds": {
+        "x": 835,
+        "y": 8,
+        "width": 818,
+        "height": 827
+      },
+      "action": {
+        "type": "message",
+        "text": "#新聞類別"
+      }
+    },
+    {
+      "bounds": {
+        "x": 1674,
+        "y": 0,
+        "width": 817,
+        "height": 839
+      },
+      "action": {
+        "type": "message",
+        "text": "#隨機新聞"
+      }
+    },
+    {
+      "bounds": {
+        "x": 9,
+        "y": 848,
+        "width": 2482,
+        "height": 838
+      },
+      "action": {
+        "type": "message",
+        "text": "#切換新聞台"
+      }
+    }
+  ]
+}

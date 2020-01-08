@@ -1,0 +1,59 @@
+{
+  "size": {
+    "width": 2500,
+    "height": 1686
+  },
+  "selected": false,
+  "name": "蘋果日報",
+  "chatBarText": "蘋果日報",
+  "areas": [
+    {
+      "bounds": {
+        "x": 0,
+        "y": 13,
+        "width": 822,
+        "height": 826
+      },
+      "action": {
+        "type": "message",
+        "text": "#新聞頭條"
+      }
+    },
+    {
+      "bounds": {
+        "x": 839,
+        "y": 18,
+        "width": 813,
+        "height": 817
+      },
+      "action": {
+        "type": "message",
+        "text": "#新聞類別"
+      }
+    },
+    {
+      "bounds": {
+        "x": 1682,
+        "y": 4,
+        "width": 809,
+        "height": 822
+      },
+      "action": {
+        "type": "message",
+        "text": "#隨機新聞"
+      }
+    },
+    {
+      "bounds": {
+        "x": 13,
+        "y": 852,
+        "width": 2466,
+        "height": 834
+      },
+      "action": {
+        "type": "message",
+        "text": "#切換新聞台"
+      }
+    }
+  ]
+}
