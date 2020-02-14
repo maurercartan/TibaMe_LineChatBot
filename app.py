@@ -37,7 +37,6 @@ pg = Create_PG_SQL()
 # 載入基礎設定檔
 secretFileContentJson=json.load(open("./line_secret_key",'r',encoding='utf8'))
 server_url=secretFileContentJson.get("server_url")
-user_ID = secretFileContentJson.get("self_user_id")
 #print(secretFileContentJson)
 
 # 設定Server啟用細節
@@ -108,7 +107,7 @@ def process_follow_event(event):
         status_message = ""
     else:
         status_message = user_profile["status_message"]
-    user_id = user_profile["user_id"]
+    user_id = event.source.user_id
     select_news = "TVBS新聞"
     
     # 記錄資料庫(如果user_id不存在,則新增該使用者資料,否則更新使用者資料)
@@ -129,6 +128,7 @@ def process_follow_event(event):
 # 文字消息處理
 @handler.add(MessageEvent,message=TextMessage)
 def process_text_message(event):
+    user_id = event.source.user_id
     # 讀取本地檔案，並轉譯成消息
     result_message_array =[]
     if event.message.text=="#切換新聞台":
@@ -142,8 +142,7 @@ def process_text_message(event):
         )
         
     elif event.message.text=="#新聞頭條":
-        user_profile = vars(line_bot_api.get_profile(event.source.user_id))
-        user_id = user_profile["user_id"]
+        user_profile = vars(line_bot_api.get_profile(user_id))
         select_news = pg.select_table("select select_news from user_info where user_id='"+user_id+"';")[0][0]
         flexCarouselContainerJsonDict = create_news_message(select_news,"首頁")
         if flexCarouselContainerJsonDict!="":
@@ -155,8 +154,7 @@ def process_text_message(event):
                 flexCarouselSendMeesage
             )
     elif event.message.text=="#新聞類別":
-        user_profile = vars(line_bot_api.get_profile(event.source.user_id))
-        user_id = user_profile["user_id"]
+        user_profile = vars(line_bot_api.get_profile(user_id))
         select_news = pg.select_table("select select_news from user_info where user_id='"+user_id+"';")[0][0]
         if select_news=="TVBS新聞":
             # 切換類別
@@ -186,8 +184,7 @@ def process_text_message(event):
                 quickReplyTextSendMessage
             )
     elif event.message.text=="#隨機新聞":
-        user_profile = vars(line_bot_api.get_profile(event.source.user_id))
-        user_id = user_profile["user_id"]
+        user_profile = vars(line_bot_api.get_profile(user_id))
         select_news = pg.select_table("select select_news from user_info where user_id='"+user_id+"';")[0][0]
         if select_news=="TVBS新聞":
             class_array = ['首頁','焦點','地方社會','娛樂']
@@ -227,8 +224,7 @@ def process_text_message(event):
                 )
         
     elif "#" in event.message.text:
-        user_profile = vars(line_bot_api.get_profile(event.source.user_id))
-        user_id = user_profile["user_id"]
+        user_profile = vars(line_bot_api.get_profile(user_id))
         select_news = pg.select_table("select select_news from user_info where user_id='"+user_id+"';")[0][0]
         select_class = event.message.text.replace("#","")
         flexCarouselContainerJsonDict = create_news_message(select_news,select_class)
